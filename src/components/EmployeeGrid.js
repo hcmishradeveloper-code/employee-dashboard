@@ -6,14 +6,16 @@ import { useState } from "react";
 
 function EmployeeGrid({rowData}){
 const [columnDefs]= useState([
-     { headerName: "ID", field: "id", width: 80 },
-     {headerName:"Name", valueGetter:(p) => `${p.data.firstName} ${p.data.lastName}`,flex:1},
-     {headerName:"Email", field:"email",flex:1.5},
-     {headerName:"Department", field:"department", filter:true, flex:1},
-     {headerName:"Position", field:"position",flex:1},
+     { headerName: "ID", field: "id", width:60},
+     {headerName:"Name", valueGetter:(p) => `${p.data.firstName} ${p.data.lastName}`,flex:1, sortable: true, filter: true},
+     {headerName:"Email", field:"email",flex:1.5, sortable: true, filter: true},
+     {headerName:"Department", field:"department", filter:true, flex:1, sortable: true},
+     {headerName:"Position", field:"position",flex:1, sortable: true, filter: true},
+     { headerName: "Hire Date", field: "hireDate", sortable: true, flex:1 },
+     { headerName: "Age", field: "age", sortable: true, width:60 },
      {headerName:"Salary", field:"salary", filter:"agNumberColumnFilter",flex:1},
-     {headerName:"Location", field:"location",flex:1},
-     {headerName:"Status", field:"isActive", cellRenderer:(p)=>(p.value ? "🟢 Active": "🔴Inactive"),flex:1}
+     {headerName:"Location", field:"location",flex:1, sortable: true, filter: true},
+     {headerName:"Status", field:"isActive", cellRenderer:(p)=>(p.value ? "✅ Active": "❌Inactive"),flex:1},
 ])
 
 
